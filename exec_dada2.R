@@ -268,10 +268,10 @@ f_qual_profile <- function(obj){
 	fnRs <- obj[['fnRs']]
 	f_qual_profile_raw <- obj[['file_qual_profile_raw']]
 	
-	cairo_pdf(f_qual_profile_raw, onefile = T)
-	#cairo_pdf(file.path(outpath, "Rplot.qual_profile.raw.pdf"), onefile = T)
-	#cairo_pdf(file.path(path, "Rplot.qual_profile.raw.pdf"), onefile = T)
-	#cairo_pdf("Rplot.qual_profile.pdf", onefile = T)
+	pdf(f_qual_profile_raw, onefile = T)
+	#pdf(file.path(outpath, "Rplot.qual_profile.raw.pdf"), onefile = T)
+	#pdf(file.path(path, "Rplot.qual_profile.raw.pdf"), onefile = T)
+	#pdf("Rplot.qual_profile.pdf", onefile = T)
 	for(i in seq_along(fnFs)) {
 	#for (i in c(1:4)){
 		sample.name <- sample.names[[i]]
@@ -688,9 +688,9 @@ f_filter <- function(obj){
 	# #errR <- learnErrors(filtRs, multithread = TRUE)
 	# #err <- learnErrors(filts, nbases = 1e8, multithread=TRUE, randomize=TRUE)
 	
-	# cat("cairo_pdf plotErrors..\n")
-	# cairo_pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
-	# #cairo_pdf(file_plotErrors, onefile = T)
+	# cat("pdf plotErrors..\n")
+	# pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
+	# #pdf(file_plotErrors, onefile = T)
 	# g1 <- plotErrors(errF, nominalQ = TRUE)
 	# g2 <- plotErrors(errR, nominalQ = TRUE)
 	# print(g1)
@@ -698,10 +698,10 @@ f_filter <- function(obj){
 	# dev.off()
 	# cat("\n")
 	
-	# cat("cairo_pdf file_qual_profile_filt..\n")
-	# cairo_pdf(file_qual_profile_filt, onefile = T)
-	# #cairo_pdf(file.path(outfiltdir, "Rplot.qual_profile.filt.pdf"), onefile = T)
-	# #cairo_pdf("Rplot.qual_profile.pdf", onefile = T)
+	# cat("pdf file_qual_profile_filt..\n")
+	# pdf(file_qual_profile_filt, onefile = T)
+	# #pdf(file.path(outfiltdir, "Rplot.qual_profile.filt.pdf"), onefile = T)
+	# #pdf("Rplot.qual_profile.pdf", onefile = T)
 	# for(i in seq_along(fnFs)) {
 	# #for (i in c(1:4)){
 		# sample.name <- sample.names[[i]]
@@ -795,9 +795,9 @@ f_plot_filter <- function(obj){
 	# #errR <- learnErrors(filtRs, multithread = TRUE)
 	# #err <- learnErrors(filts, nbases = 1e8, multithread=TRUE, randomize=TRUE)
 	
-	# cat("cairo_pdf plotErrors..\n")
-	# cairo_pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
-	# #cairo_pdf(file_plotErrors, onefile = T)
+	# cat("pdf plotErrors..\n")
+	# pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
+	# #pdf(file_plotErrors, onefile = T)
 	# g1 <- plotErrors(errF, nominalQ = TRUE)
 	# g2 <- plotErrors(errR, nominalQ = TRUE)
 	# print(g1)
@@ -805,10 +805,10 @@ f_plot_filter <- function(obj){
 	# dev.off()
 	# cat("\n")
 	
-	cat("cairo_pdf file_qual_profile_filt..\n")
-	cairo_pdf(file_qual_profile_filt, onefile = T)
-	#cairo_pdf(file.path(outfiltdir, "Rplot.qual_profile.filt.pdf"), onefile = T)
-	#cairo_pdf("Rplot.qual_profile.pdf", onefile = T)
+	cat("pdf file_qual_profile_filt..\n")
+	pdf(file_qual_profile_filt, onefile = T)
+	#pdf(file.path(outfiltdir, "Rplot.qual_profile.filt.pdf"), onefile = T)
+	#pdf("Rplot.qual_profile.pdf", onefile = T)
 	for(i in seq_along(fnFs)) {
 	#for (i in c(1:4)){
 		sample.name <- sample.names[[i]]
@@ -940,9 +940,9 @@ f_infer_sample <- function(obj){
 	#err <- learnErrors(filts, nbases = 1e8, multithread=TRUE, randomize=TRUE)
 	cat("\n")
 	
-	cat("cairo_pdf plotErrors..\n")
-	cairo_pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
-	#cairo_pdf(file_plotErrors, onefile = T)
+	cat("pdf plotErrors..\n")
+	pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
+	#pdf(file_plotErrors, onefile = T)
 	g1 <- plotErrors(errF, nominalQ = TRUE)
 	g2 <- plotErrors(errR, nominalQ = TRUE)
 	print(g1)
@@ -1006,7 +1006,7 @@ f_infer_sample <- function(obj){
 	#plotErrors(dadaFs[[1]], nominalQ=TRUE)
 	#plotErrors(dadaFs[[2]], nominalQ=TRUE)
 	
-	# cairo_pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
+	# pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
 	# #for(i in seq_along(fnFs)) {
 	# plotErrors(dadaFs[[1]], nominalQ=TRUE)
 	# plotErrors(dadaFs[[2]], nominalQ=TRUE)
@@ -1673,7 +1673,7 @@ f_phyloseq_plot <- function(obj){
 	# Visualize alpha-diversity:
 	cat("Visualize alpha-diversity..\n")
 	g0 <- plot_richness(ps, x = "Sample_name", measures = c("Shannon", "Simpson"), color = "Sample_name") + theme_bw()
-	cairo_pdf(file.path(outfiltdir, "Rplot.richness.pdf"), onefile = T)
+	pdf(file.path(outfiltdir, "Rplot.richness.pdf"), onefile = T)
 	print(g0)
 	dev.off()
 	
@@ -1701,12 +1701,12 @@ f_phyloseq_plot <- function(obj){
 	#plot_bar(ps.top20, x="Day", fill="Family") + facet_wrap(~When, scales="free_x")
 	
 	g1 <- plot_bar(ps.top20, x = "Sample_name", fill = "Family") #+ facet_wrap(~ Sample_name, scales = "free_x")
-	cairo_pdf(file.path(outfiltdir, "Rplot.barplot.family.top20.pdf"), onefile = T)
+	pdf(file.path(outfiltdir, "Rplot.barplot.family.top20.pdf"), onefile = T)
 	print(g1)
 	dev.off()
 	
 	g2 <- plot_bar(ps.top20, x = "Sample_name", fill = "Phylum") #+ facet_wrap(~ Sample_name, scales = "free_x")
-	cairo_pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.pdf"), onefile = T)
+	pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.pdf"), onefile = T)
 	print(g2)
 	dev.off()
 	
@@ -1714,7 +1714,7 @@ f_phyloseq_plot <- function(obj){
 	ps.all <- transform_sample_counts(ps, function(OTU) OTU/sum(OTU))
 	ps.all <- prune_taxa(all, ps.all)
 	g3 <- plot_bar(ps.all, x = "Sample_name", fill = "Phylum") #+ facet_wrap(~ Sample_name, scales = "free_x")
-	cairo_pdf(file.path(outfiltdir, "Rplot.barplot.phylum.all.pdf"), onefile = T)
+	pdf(file.path(outfiltdir, "Rplot.barplot.phylum.all.pdf"), onefile = T)
 	print(g3)
 	dev.off()
 	
@@ -2301,9 +2301,9 @@ fnFs <- file.path(path, fnFs)
 fnRs <- file.path(path, fnRs)
 
 # Examine quality profiles of forward and reverse reads
-cairo_pdf(file.path(outpath, "Rplot.qual_profile.raw.pdf"), onefile = T)
-#cairo_pdf(file.path(path, "Rplot.qual_profile.raw.pdf"), onefile = T)
-#cairo_pdf("Rplot.qual_profile.pdf", onefile = T)
+pdf(file.path(outpath, "Rplot.qual_profile.raw.pdf"), onefile = T)
+#pdf(file.path(path, "Rplot.qual_profile.raw.pdf"), onefile = T)
+#pdf("Rplot.qual_profile.pdf", onefile = T)
 for(i in seq_along(fnFs)) {
 #for (i in c(1:4)){
 	sample.name <- sample.names[[i]]
@@ -2365,8 +2365,8 @@ for(i in seq_along(fnFs)) {
 	)
 }
 
-cairo_pdf(file.path(outfiltdir, "Rplot.qual_profile.filt.pdf"), onefile = T)
-#cairo_pdf("Rplot.qual_profile.pdf", onefile = T)
+pdf(file.path(outfiltdir, "Rplot.qual_profile.filt.pdf"), onefile = T)
+#pdf("Rplot.qual_profile.pdf", onefile = T)
 for(i in seq_along(fnFs)) {
 #for (i in c(1:4)){
 	sample.name <- sample.names[[i]]
@@ -2438,7 +2438,7 @@ for(i in seq_along(fnFs)) {
 #plotErrors(dadaFs[[1]], nominalQ=TRUE)
 #plotErrors(dadaFs[[2]], nominalQ=TRUE)
 
-cairo_pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.estimated_error_rates.pdf"), onefile = T)
 #for(i in seq_along(fnFs)) {
 plotErrors(dadaFs[[1]], nominalQ=TRUE)
 plotErrors(dadaFs[[2]], nominalQ=TRUE)
@@ -2640,7 +2640,7 @@ ps
 }
 
 # Visualize alpha-diversity:
-cairo_pdf(file.path(outfiltdir, "Rplot.richness.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.richness.pdf"), onefile = T)
 plot_richness(ps, x = "Sample", measures = c("Shannon", "Simpson"), color = "Sample") + theme_bw()
 dev.off()
 
@@ -2666,35 +2666,35 @@ ps.top20 <- prune_taxa(top20, ps.top20)
 plot_bar(ps.top20, x="Sample", fill="Family") + facet_wrap(~ Sample, scales = "free_x")
 #plot_bar(ps.top20, x="Day", fill="Family") + facet_wrap(~When, scales="free_x")
 
-cairo_pdf(file.path(outfiltdir, "Rplot.barplot.family.top20.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.barplot.family.top20.pdf"), onefile = T)
 plot_bar(ps.top20, x = "Sample", fill = "Family") + facet_wrap(~ Sample, scales = "free_x")
 dev.off()
 
-cairo_pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.pdf"), onefile = T)
 plot_bar(ps.top20, x = "Sample", fill = "Phylum") + facet_wrap(~ Sample, scales = "free_x")
 dev.off()
 
 all <- names(sort(taxa_sums(ps), decreasing=TRUE))
 ps.all <- transform_sample_counts(ps, function(OTU) OTU/sum(OTU))
 ps.all <- prune_taxa(all, ps.all)
-cairo_pdf(file.path(outfiltdir, "Rplot.barplot.phylum.all.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.barplot.phylum.all.pdf"), onefile = T)
 plot_bar(ps.all, x = "Sample", fill = "Phylum") + facet_wrap(~ Sample, scales = "free_x")
 dev.off()
 
 ## w.o. facet_wrap
-cairo_pdf(file.path(outfiltdir, "Rplot.barplot.family.top20.all.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.barplot.family.top20.all.pdf"), onefile = T)
 plot_bar(ps.top20, x = "Sample", fill = "Family") #+ facet_wrap(~ Sample, scales = "free_x")
 dev.off()
 
-cairo_pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.all.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.all.pdf"), onefile = T)
 plot_bar(ps.top20, x = "Sample", fill = "Phylum") #+ facet_wrap(~ Sample, scales = "free_x")
 dev.off()
 
-cairo_pdf(file.path(outfiltdir, "Rplot.barplot.phylum.all.all.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.barplot.phylum.all.all.pdf"), onefile = T)
 plot_bar(ps.all, x = "Sample", fill = "Phylum") #+ facet_wrap(~ Sample, scales = "free_x")
 dev.off()
 
-cairo_pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.all.log.pdf"), onefile = T)
+pdf(file.path(outfiltdir, "Rplot.barplot.phylum.top20.all.log.pdf"), onefile = T)
 plot_bar(ps.top20, x = "Sample", fill = "Phylum") + scale_y_log10() #+ facet_wrap(~ Sample, scales = "free_x")
 dev.off()
 
